@@ -1,0 +1,118 @@
+body {
+    background-color: white;
+    font-family: 'Courier New', monospace;
+    margin: 0;
+    padding: 20px;
+    color: #000;
+}
+
+.title {
+    font-size: 0.9rem;
+    font-weight: normal;
+    text-align: center;
+    text-transform: lowercase;
+    margin-bottom: 50px;
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: center;        
+    align-items: center;            
+    gap: 150px;                     
+    min-height: 70vh;               
+}
+
+.left-side {
+    position: relative;             
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-image {
+    width: 360px;
+    height: auto;
+}
+
+.quote {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin: 18px 0 0;
+    text-align: left;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: #666;
+}
+
+.stack-container {
+    position: relative;
+    cursor: pointer;
+    top: 0;
+    transition: top 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.stack-container.open {
+    top: 100px;
+}
+
+.folder-trigger {
+    padding: 10px 20px;
+    background: #fcfcfc;
+    border: 1px solid #eee;
+    width: 120px;
+    box-sizing: border-box;
+    text-align: center;
+    user-select: none;
+}
+
+.folder-trigger .arrow {
+    display: none;
+    transform: rotate(-90deg);
+    letter-spacing: -1px;
+}
+
+.stack-container.open .folder-trigger .label { display: none; }
+.stack-container.open .folder-trigger .arrow { display: inline-block; }
+
+.item {
+    display: block;
+    padding: 10px 20px;
+    background: #fcfcfc;
+    border: 1px solid #eee;
+    text-decoration: none;
+    color: #333;
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 120px;
+    box-sizing: border-box;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.stack-container.open .item {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.stack-container.open .item:nth-child(1) { transform: translate(44px, -150px) rotate(16deg); }
+.stack-container.open .item:nth-child(2) { transform: translate(30px, -104px) rotate(10deg); }
+.stack-container.open .item:nth-child(3) { transform: translate(14px, -60px) rotate(5deg); }
+
+.coming-soon {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.coming-soon h1 {
+    font-size: 1.2rem;
+    font-weight: normal;
+    text-transform: lowercase;
+}
