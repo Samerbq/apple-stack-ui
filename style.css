@@ -49,13 +49,11 @@ body {
 
 .stack-container {
     position: relative;
-    cursor: pointer;
-    top: 0;
-    transition: top 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.stack-container.open {
-    top: 100px;
+    height: 360px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .folder-trigger {
@@ -66,6 +64,7 @@ body {
     box-sizing: border-box;
     text-align: center;
     user-select: none;
+    cursor: pointer;
 }
 
 .folder-trigger .arrow {
@@ -86,11 +85,12 @@ body {
     color: #333;
     transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     width: 120px;
     box-sizing: border-box;
     text-align: center;
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.1);
     opacity: 0;
     pointer-events: none;
 }
@@ -100,9 +100,9 @@ body {
     pointer-events: auto;
 }
 
-.stack-container.open .item:nth-child(1) { transform: translate(44px, -150px) rotate(16deg); }
-.stack-container.open .item:nth-child(2) { transform: translate(30px, -104px) rotate(10deg); }
-.stack-container.open .item:nth-child(3) { transform: translate(14px, -60px) rotate(5deg); }
+.stack-container.open .item:nth-child(1) { transform: translate(26px, -192px) rotate(6deg); }
+.stack-container.open .item:nth-child(2) { transform: translate(16px, -128px) rotate(4deg); }
+.stack-container.open .item:nth-child(3) { transform: translate(6px, -64px) rotate(2deg); }
 
 .coming-soon {
     min-height: 80vh;
@@ -115,4 +115,42 @@ body {
     font-size: 1.2rem;
     font-weight: normal;
     text-transform: lowercase;
+}
+
+/* Mobiel: alles onder elkaar, kleinere foto, stack waaiert als een dock over de content */
+@media (max-width: 700px) {
+    body {
+        padding: 16px;
+    }
+
+    .title {
+        font-size: 0.75rem;
+        line-height: 1.6;
+        margin-bottom: 30px;
+    }
+
+    .content-wrapper {
+        flex-direction: column;
+        gap: 28px;
+        min-height: auto;
+        margin-top: 4vh;
+    }
+
+    .left-side {
+        width: min(80vw, 300px);
+    }
+
+    .main-image {
+        width: 100%;
+    }
+
+    .quote {
+        position: static;
+        width: 100%;
+        margin-top: 14px;
+    }
+
+    .stack-container {
+        height: auto;
+    }
 }
