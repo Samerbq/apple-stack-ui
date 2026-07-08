@@ -117,7 +117,6 @@ body {
     text-transform: lowercase;
 }
 
-/* Mobiel: alles onder elkaar, kleinere foto, stack waaiert als een dock over de content */
 @media (max-width: 700px) {
     body {
         padding: 16px;
